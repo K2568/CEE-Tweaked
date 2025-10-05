@@ -37,9 +37,9 @@ public class PantographMovementBehaviour implements MovementBehaviour {
         float currentExtensionState = context.data.getFloat("CurrentExtensionState");
         float prevExtensionState = currentExtensionState;
         if (targetExtensionState == 0)
-            currentExtensionState = Mth.lerp(0.1f, currentExtensionState, targetExtensionState);
+            currentExtensionState = Mth.lerp(1.0f, currentExtensionState, targetExtensionState);
         else
-            currentExtensionState = Mth.lerp(0.5f, currentExtensionState, targetExtensionState);
+            currentExtensionState = Mth.lerp(1.0f, currentExtensionState, targetExtensionState);
         if (Math.abs(currentExtensionState - targetExtensionState) < 0.01)
              currentExtensionState = targetExtensionState;
 
@@ -91,7 +91,7 @@ public class PantographMovementBehaviour implements MovementBehaviour {
                 Vec3 distance = pantographPos.subtract(closest);
                 context.rotation.apply(distance).multiply(0, 0, 0);
 
-                if (!(Math.abs(distance.z()) > 1.5) && !(Math.abs(distance.x()) > 0.5) && !(Math.abs(distance.y()) > 1)) {
+                if (!(Math.abs(distance.z()) > 1.5) && !(Math.abs(distance.x()) > 0.5) && !(Math.abs(distance.y()) > 5)) {
                     connectionPoint = closest;
                     break;
                 }
@@ -100,7 +100,7 @@ public class PantographMovementBehaviour implements MovementBehaviour {
             if (connectionPoint != null) {
 //                context.world.addParticle(ParticleTypes.ELECTRIC_SPARK, connectionPoint.x, connectionPoint.y, connectionPoint.z, 0, 0, 0);
                 float lo = 0;
-                float hi = 1.3f;
+                float hi = 2f;
                 for (int i = 0; i < 20; i++) {
                     float m1 = lo + (hi - lo) / 3;
                     float m2 = hi - (hi - lo) / 3;
