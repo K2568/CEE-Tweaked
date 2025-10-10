@@ -52,6 +52,11 @@ jobs:
         git tag autobuild-${{ github.run_number }}
         git push origin autobuild-${{ github.run_number }}
 
+    - name: Get commit count
+      id: commit_count
+      run: echo "count=$(git rev-list --count HEAD)" >> $GITHUB_OUTPUT
+
+
     - name: Download build artifacts
       uses: actions/download-artifact@v4
       with:
