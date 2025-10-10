@@ -67,6 +67,8 @@ jobs:
           These builds are auto generated on every commit. There is no guarantee these will be stable.
           Changelog:
           ${{ github.event.head_commit.message }}
+          
+          ${{ steps.commit_info.outputs.body }}
         draft: false
         prerelease: true
         files: build/libs/*.jar
