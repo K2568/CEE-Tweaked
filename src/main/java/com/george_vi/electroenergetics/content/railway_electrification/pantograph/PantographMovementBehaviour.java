@@ -100,7 +100,7 @@ public class PantographMovementBehaviour implements MovementBehaviour {
             if (connectionPoint != null) {
 //                context.world.addParticle(ParticleTypes.ELECTRIC_SPARK, connectionPoint.x, connectionPoint.y, connectionPoint.z, 0, 0, 0);
                 float lo = 0;
-                float hi = 2f;
+                float hi = 2.5f;
                 for (int i = 0; i < 20; i++) {
                     float m1 = lo + (hi - lo) / 3;
                     float m2 = hi - (hi - lo) / 3;
