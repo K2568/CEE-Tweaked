@@ -44,7 +44,7 @@ public class IndicatorBulbRenderer extends SmartBlockEntityRenderer<IndicatorBul
                     .color(color.getTextColor())
                     .light(light)
                     .disableDiffuse()
-                    .renderInto(ms, buffer.getBuffer(lightStrength > 0.05f ? RenderTypes.additive() : RenderType.translucent()));
+                    .renderInto(ms, buffer.getBuffer(lightStrength > 0.05f ? RenderTypes.additive() : RenderType.cutout()));
 
 
             if (lightStrength > 0.05f) {
